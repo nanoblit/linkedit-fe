@@ -4,9 +4,9 @@ import { Route } from 'react-router';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
-import GlobalStyles from './GlobalStyles';
+import GlobalStyles from './styles/GlobalStyles';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div className="App">
       <GlobalStyles />

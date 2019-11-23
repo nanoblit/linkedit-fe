@@ -12,16 +12,12 @@ import App from './App';
 const combinedReducer = combineReducers({
 });
 
-declare global {
-  interface Window { __REDUX_DEVTOOLS_EXTENSION__: any; }
-}
-
 const store = createStore(
   combinedReducer,
   {},
   compose(
     applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : (f:any) => f,
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : f => f,
   ),
 );
 
@@ -33,6 +29,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
-
-
-
