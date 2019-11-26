@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
-const Register = ({history}) => {
+const Register = ({ history }) => {
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
   const repeatedPasswordRef = useRef(null);
@@ -22,8 +23,8 @@ const Register = ({history}) => {
         username,
         password
       });
-      history.push('/login');
-      toast.success("You've been registered successfully")
+      history.push("/login");
+      toast.success("You've been registered successfully");
     } catch (error) {
       toast.error(error.response.data.error);
     }
@@ -49,6 +50,10 @@ const Register = ({history}) => {
       <ToastContainer />
     </div>
   );
+};
+
+Register.propTypes = {
+  history: PropTypes.object.isRequired
 };
 
 export default Register;
