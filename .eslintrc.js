@@ -21,5 +21,8 @@ module.exports = {
     sourceType: "module"
   },
   plugins: ["react"],
-  rules: {}
+  rules: {},
+  globals: {
+    process: "readonly"
+  }
 };
