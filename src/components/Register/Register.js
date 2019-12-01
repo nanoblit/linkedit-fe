@@ -26,7 +26,11 @@ const Register = ({ history }) => {
       history.push("/login");
       toast.success("You've been registered successfully");
     } catch (error) {
-      toast.error(error.response.data.error);
+      if (error.response) {
+        toast.error(error.response.data.error);
+      } else {
+        toast.error("Couldn't register");
+      }
     }
   };
 
