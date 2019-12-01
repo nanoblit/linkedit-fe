@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
@@ -31,16 +32,36 @@ const Login = ({ history }) => {
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={login}>
-        <label htmlFor="username">Email</label>
-        <input ref={usernameRef} id="username" type="text" required />
-        <label htmlFor="password">Password</label>
-        <input ref={passwordRef} id="password" type="password" required />
-        <button type="submit">Login</button>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            ref={usernameRef}
+            className="form-control"
+            id="username"
+            type="text"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            ref={passwordRef}
+            className="form-control"
+            id="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button className="btn btn-primary" type="submit">
+          Login
+        </button>
       </form>
       <ToastContainer />
-    </div>
+    </>
   );
 };
 
